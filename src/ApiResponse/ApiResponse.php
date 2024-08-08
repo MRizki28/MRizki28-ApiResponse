@@ -16,10 +16,10 @@ class ApiResponse{
 
     public static function success($data = [], $message = 'Success', int $code =  200){
         http_response_code((int)$code);
-        
+
+        header('Content-Type: application/json');
         return json_encode([
             'status' => 'success',
-            'code' => $code,
             'message' => $message,
             'data' => $data
         ]);
