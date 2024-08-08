@@ -1,6 +1,5 @@
 {
     "name": "mrizki28/handler-api-response",
-    "version": "1.0.4",
     "description": "is a PHP package designed to simplify and standardize API response management in your applications. With this package, you can easily send success responses, error responses, and validation error responses in a consistent and structured format. This package aims to enhance the efficiency and ease of API development",
     "type": "library",
     "license": "MIT",
