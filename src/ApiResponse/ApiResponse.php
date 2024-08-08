@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MRizki28\ApiRespone;
+namespace MRizki28\ApiResponse;
 
 class ApiResponse{
 
