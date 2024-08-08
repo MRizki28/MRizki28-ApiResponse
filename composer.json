@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "MRizki28\\ApiResponse\\": "src/"
+            "MRizki28\\ApiResponse\\": "src/ApiResponse"
         }
     },
     "minimum-stability": "stable",
