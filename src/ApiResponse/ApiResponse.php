@@ -14,7 +14,7 @@ class ApiResponse{
      * @return string JSON formatted response.
      */
 
-    public static function success($data = [], $message = 'Success', $code = 200){
+    public static function success($data = [], $message = 'Success', int $code =  200){
         http_response_code($code);
         
         return json_encode([
