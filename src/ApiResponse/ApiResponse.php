@@ -15,7 +15,7 @@ class ApiResponse{
      */
 
     public static function success($data = [], $message = 'Success', int $code =  200){
-        http_response_code($code);
+        http_response_code((int)$code);
         
         return json_encode([
             'status' => 'success',
