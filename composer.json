@@ -16,6 +16,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "symfony/http-foundation": "^7.1"
     }
 }

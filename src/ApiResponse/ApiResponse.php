@@ -3,7 +3,10 @@
 
 namespace MRizki28\ApiResponse;
 
-class ApiResponse{
+use Symfony\Component\HttpFoundation\Response;
+
+class ApiResponse
+{
 
     /**
      * Format a successful response.
@@ -14,14 +17,15 @@ class ApiResponse{
      * @return string JSON formatted response.
      */
 
-    public static function success($data = [], $message = 'Success', int $code =  200){
-        http_response_code((int)$code);
-
-        header('Content-Type: application/json');
-        return json_encode([
+    public static function success($data = [], $message = 'Success', int $code =  200)
+    {
+        return new Response(json_encode([
             'status' => 'success',
             'message' => $message,
             'data' => $data
-        ]);
+        ]),
+            $code,
+            ['Content-Type' => 'application/json']
+        );
     }
 }
