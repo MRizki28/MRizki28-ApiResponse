@@ -19,6 +19,7 @@ class ApiResponse
 
     public static function success($data = [], $message = 'Success', int $code =  200)
     {
+        
         return new Response(json_encode([
             'status' => 'success',
             'message' => $message,
