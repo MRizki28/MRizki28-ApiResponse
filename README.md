@@ -37,6 +37,9 @@ class ExampleController extends Controller
 $data `array`
 $message `string`
 $code `int` default return `200`
+#### `ApiResponse.notFound($message, $code)`
+$message `string`
+$code `int` default return `200`
 
 ## Contribution
 
