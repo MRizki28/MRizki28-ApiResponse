@@ -1,11 +1,6 @@
 ### About
 simple package to help you in handling json responses
 
-# API Documentation
-```bash
-https://documenter.getpostman.com/view/20628988/2sA3rzJXhK
-```
-
 ## Requirements
 
 - PHP `^8.0`
