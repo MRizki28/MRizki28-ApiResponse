@@ -56,14 +56,25 @@ class ApiResponse
      * @param string $message Message to include in the response.
      * @param int $code HTTP status code.
      * @return string JSON formatted response.
+     * @param \Throwable|null only method Throwable
      */
 
-    public static function error( \Throwable $th = null, $message = 'Error', int $code = 500,){
+    public static function error(\Throwable $th = null, $message = 'Error', int $code = 500,)
+    {
+        $errorDetail = null;
+        if ($th) {
+            $errorDetail = [
+                'message' => $th->getMessage(),
+                'file' => $th->getFile(),
+                'line' => $th->getLine(),
+                'trace' => $th->getTrace()
+            ];
+        }
         return new Response(
             json_encode([
                 'status' => 'error',
                 'message' => $message,
-                'error' => $th
+                'error' => $errorDetail
             ]),
             $code,
             ['Content-Type' => 'application/json']
