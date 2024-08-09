@@ -40,6 +40,10 @@ $code `int` default return `200`
 #### `ApiResponse.notFound($message, $code)`
 $message `string`
 $code `int` default return `404`
+#### `ApiResponse.error($th, $message, $code)`
+$message `string`
+$th `\Throwable`
+$code `int` default return `500`
 
 ## Contribution
 
