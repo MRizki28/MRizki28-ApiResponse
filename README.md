@@ -3,7 +3,7 @@ simple package to help you in handling json responses
 
 ## Requirements
 
-- PHP `^8.0`
+- PHP `^8.2`
 
 
 ## Installation
