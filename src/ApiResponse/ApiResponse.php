@@ -49,4 +49,24 @@ class ApiResponse
             ['Content-Type' => 'application/json']
         );
     }
+
+    /**
+     * Format an error response.
+     *
+     * @param string $message Message to include in the response.
+     * @param int $code HTTP status code.
+     * @return string JSON formatted response.
+     */
+
+    public static function error( \Throwable $th = null, $message = 'Error', int $code = 500,){
+        return new Response(
+            json_encode([
+                'status' => 'error',
+                'message' => $message,
+                'error' => $th
+            ]),
+            $code,
+            ['Content-Type' => 'application/json']
+        );
+    }
 }
