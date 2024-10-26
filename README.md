@@ -44,7 +44,7 @@ $code `int` default return `404`
 $message `string`
 $th `\Throwable`
 $code `int` default return `500`
-
+#### `ApiResponse.unauthorize()`
 ## Contribution
 
 Any ideas are welcome. Feel free to submit any issues or pull requests.
