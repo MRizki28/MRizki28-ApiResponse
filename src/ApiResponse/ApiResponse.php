@@ -80,4 +80,22 @@ class ApiResponse
             ['Content-Type' => 'application/json']
         );
     }
+
+    /**
+     * Format an unauthorized response.
+     *
+     * @return string JSON formatted response.
+     */
+
+    public static function unauthorized()
+    {
+        return new Response(
+            json_encode([
+                'status' => 'Unauthorized',
+                'message' => 'Unauthorized'
+            ]),
+            401,
+            ['Content-Type' => 'application/json']
+        );
+    }
 }
