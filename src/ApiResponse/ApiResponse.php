@@ -33,17 +33,16 @@ class ApiResponse
     /**
      * Format an data not found response.
      *
-     * @param string $message Message to include in the response.
      * @param int $code HTTP status code.
      * @return string JSON formatted response.
      */
 
-    public static function notFound($message = 'Data not found', int $code = 404)
+    public static function notFound(int $code = 404)
     {
         return new Response(
             json_encode([
-                'status' => 'Data not found',
-                'message' => $message
+                'status' => 'not found',
+                'message' => 'Data not found'
             ]),
             $code,
             ['Content-Type' => 'application/json']
@@ -59,7 +58,7 @@ class ApiResponse
      * @param \Throwable|null only method Throwable
      */
 
-    public static function error(\Throwable $th = null, $message = 'Error', int $code = 500,)
+    public static function error(\Throwable $th = null, $message = 'Error', int $code = 500)
     {
         $errorDetail = null;
         if ($th) {
@@ -95,6 +94,25 @@ class ApiResponse
                 'message' => 'Unauthorized'
             ]),
             401,
+            ['Content-Type' => 'application/json']
+        );
+    }
+
+
+    /**
+     * Format a custom response.
+     *
+     * @param array $data Data to include in the response.
+     * @param int $code HTTP status code.
+     * @return string JSON formatted response.
+     */
+
+    
+    public static function custom(array $data = [] , int $code = 200)
+    {
+        return new Response(
+            json_encode($data),
+            $code,
             ['Content-Type' => 'application/json']
         );
     }
