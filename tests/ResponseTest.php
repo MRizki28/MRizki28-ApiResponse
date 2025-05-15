@@ -34,11 +34,11 @@ class ResponseTest extends TestCase
 
     public function test_noFound_response()
     {
-        $response = $this->apiResponse->notFound('Data not found', 404);
+        $response = $this->apiResponse->notFound(404);
 
         $this->assertJsonStringEqualsJsonString(
             json_encode([
-                'status' => 'Data not found',
+                'status' => 'not found',
                 'message' => 'Data not found'
             ]),
             $response->getContent()
