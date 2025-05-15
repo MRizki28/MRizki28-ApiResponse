@@ -3,7 +3,7 @@ simple package to help you in handling json responses
 
 ## Requirements
 
-- PHP `^8.2`
+- PHP `^8.x`
 
 
 ## Installation
@@ -37,14 +37,21 @@ class ExampleController extends Controller
 $data `array`
 $message `string`
 $code `int` default return `200`
-#### `ApiResponse.notFound($message, $code)`
-$message `string`
+
+#### `ApiResponse.notFound($code)`
 $code `int` default return `404`
+
 #### `ApiResponse.error($th, $message, $code)`
 $message `string`
 $th `\Throwable`
 $code `int` default return `500`
+
 #### `ApiResponse.unauthorize()`
+
+#### `ApiResponse.custom([
+    'example' => 'example',
+], $code)`
+
 ## Contribution
 
 Any ideas are welcome. Feel free to submit any issues or pull requests.
