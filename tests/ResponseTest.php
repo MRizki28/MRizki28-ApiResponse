@@ -47,9 +47,10 @@ class ResponseTest extends TestCase
         $this->assertEquals(404, $response->getStatusCode());
     }
 
-    public function test_error_response(){
+    public function test_error_response()
+    {
         $th = new \Exception('Error here');
-        $response = $this->apiResponse->error($th , 'Error', 500);
+        $response = $this->apiResponse->error($th, 'Error', 500);
 
         $this->assertJsonStringEqualsJsonString(
             json_encode([
@@ -66,5 +67,31 @@ class ResponseTest extends TestCase
         );
 
         $this->assertEquals(500, $response->getStatusCode());
+    }
+
+    public function test_error_custom_response()
+    {
+        $response = $this->apiResponse->custom([
+            'status' => 'success',
+            'message' => 'Success test',
+            'data' => [
+                'id' => 1,
+                'name' => 'Muhammad Rizki'
+            ]
+        ]);
+
+        $this->assertJsonStringEqualsJsonString(
+            json_encode([
+                'status' => 'success',
+                'message' => 'Success test',
+                'data' => [
+                    'id' => 1,
+                    'name' => 'Muhammad Rizki'
+                ]
+            ]),
+            $response->getContent()
+        );
+
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }
